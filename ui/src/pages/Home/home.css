@@ -1,0 +1,26 @@
+.home {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffa4a4;
+}
+
+.big-logo {
+  transform: scale(2);
+  margin-left: 70px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  line-height: 26px;
+  transition: all 400ms;
+}
+
+.nav-link:hover {
+  color: #6966fe;
+  transform: scale(1.05);
+}

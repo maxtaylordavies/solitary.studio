@@ -1,0 +1,67 @@
+.about {
+  height: 100%;
+  width: 100%;
+  background: white;
+}
+
+.about-text {
+  position: absolute;
+  bottom: 100px;
+  right: 100px;
+  border-bottom: 7px solid black;
+  border-top: 7px solid black;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 54px;
+  line-height: 52px;
+  text-align: left;
+  width: 600px;
+}
+
+.about-text::selection {
+  background: black;
+  color: white;
+}
+
+.solitary {
+  background: #007458;
+  color: #48ff5b;
+  padding: 6px;
+  padding-top: 0;
+}
+
+.solitary::selection {
+  background: black;
+  color: white;
+}
+
+.one-man {
+  text-decoration: none;
+  color: blue;
+}
+
+.one-man::selection {
+  background: black;
+  color: white;
+}
+
+.square {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background: #ffadad;
+  margin-bottom: -3px;
+  animation: blink 2s step-start 0s infinite;
+  -webkit-animation: blink 2s step-start 0s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

@@ -1,18 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import logo from "../../logo.svg";
+import { Page } from "../Page";
+import { BigLogo } from "../../components/Logos/BigLogo";
 import "./home.css";
 
 export const Home = () => {
   return (
-    <div className="home">
-      <img src={logo} className="big-logo" alt="logo" />
+    <Page className="home">
+      <BigLogo />
       {_Link("home", "/", { top: 20, left: 20 })}
       {_Link("projects", "/projects", { top: 20, right: 20 })}
       {_Link("about", "/about", { bottom: 20, left: 20 })}
       {_Link("contact", "/contact", { bottom: 20, right: 20 })}
-    </div>
+    </Page>
   );
 };
 

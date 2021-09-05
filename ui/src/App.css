@@ -1,11 +1,16 @@
 .App {
-  font-family: "Maru Mega";
-  text-align: center;
+  font-family: "GT Maru";
+  /* text-align: center; */
   height: 100vh;
   width: 100vw;
 }
 
 @font-face {
-  font-family: "Maru Mega";
+  font-family: "GT Maru Mega";
   src: url("./GT-Maru-Mega.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "GT Maru";
+  src: url("./GT-Maru-Medium.woff2") format("woff2");
 }

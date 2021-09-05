@@ -1,0 +1,54 @@
+.big-logo {
+  position: relative;
+  width: 600px;
+  height: 400px;
+}
+
+.logo-left {
+  position: absolute;
+  left: 0;
+  height: 400px;
+  animation: spin-clockwise 6s linear infinite;
+}
+
+.logo-right {
+  position: absolute;
+  left: 200px;
+  height: 400px;
+  animation: spin-counterclockwise 5s linear infinite;
+}
+
+.small-logo {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  height: 60px;
+}
+
+.small-logo-left {
+  position: absolute;
+  left: 0;
+  height: 60px;
+  animation: spin-clockwise 6s linear infinite;
+}
+
+.small-logo-right {
+  position: absolute;
+  left: 30px;
+  height: 60px;
+  animation: spin-counterclockwise 5s linear infinite;
+}
+
+@keyframes spin-clockwise {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-counterclockwise {
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}

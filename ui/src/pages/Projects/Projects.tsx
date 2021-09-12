@@ -11,6 +11,29 @@ import { ReactComponent as SubprimeLogo } from "./logos/subprime.svg";
 import "./projects.css";
 
 export const Projects = () => {
+  const [activeProjectName, setActiveProjectName] = useState("");
+
+  const renderProject = (
+    name: string,
+    url: string,
+    colors: string[],
+    logo: any,
+    _new?: boolean
+  ) => {
+    return (
+      <ProjectCard
+        name={name}
+        url={url}
+        colors={colors}
+        logo={logo}
+        active={activeProjectName === name}
+        activate={() => setActiveProjectName(name)}
+        deactivate={() => setActiveProjectName("")}
+        _new={_new}
+      />
+    );
+  };
+
   return (
     <Page className="projects">
       <SmallLogo />
@@ -24,24 +47,22 @@ export const Projects = () => {
           <div className="year">2021</div>
           <hr className="year-underline" />
           <div className="project-cards">
-            <ProjectCard
-              name="jikji.club"
-              url="https://jikji.club"
-              colors={["#DC0084", "#FFF5F5", "#FECECE"]}
-              logo={
-                <JikjiLogo
-                  className="project-logo"
-                  style={{ height: 35, width: 35 }}
-                />
-              }
-              _new
-            />
-            <ProjectCard
-              name="subprime.fun"
-              url="https://subprime.fun"
-              colors={["#B87B40", "#FFF5EB", "#FBDBBD"]}
-              logo={<SubprimeLogo className="project-logo" />}
-            />
+            {renderProject(
+              "jikji.club",
+              "https://jikji.club",
+              ["#DC0084", "#FFF5F5", "#FECECE"],
+              <JikjiLogo
+                className="project-logo"
+                style={{ height: 35, width: 35 }}
+              />,
+              true
+            )}
+            {renderProject(
+              "subprime.fun",
+              "https://subprime.fun",
+              ["#B87B40", "#FFF5EB", "#FBDBBD"],
+              <SubprimeLogo className="project-logo" />
+            )}
           </div>
         </motion.div>
         <motion.div
@@ -53,12 +74,12 @@ export const Projects = () => {
           <div className="year">2020</div>
           <hr className="year-underline" />
           <div className="project-cards">
-            <ProjectCard
-              name="products.gal..."
-              url="https://products.gallery"
-              colors={["#00C9A5", "#EFFFF9", "#CAFFEC"]}
-              logo={<ProductsLogo className="project-logo" />}
-            />
+            {renderProject(
+              "products.gal...",
+              "https://products.gallery",
+              ["#00C9A5", "#EFFFF9", "#CAFFEC"],
+              <ProductsLogo className="project-logo" />
+            )}
           </div>
         </motion.div>
       </div>
@@ -71,19 +92,29 @@ interface CardProps {
   url: string;
   colors: string[];
   logo: any;
+  active: boolean;
+  activate: () => void;
+  deactivate: () => void;
   _new?: boolean;
 }
 
-const ProjectCard = ({ name, url, colors, logo, _new }: CardProps) => {
-  const [active, setActive] = useState(false);
-
+const ProjectCard = ({
+  name,
+  url,
+  colors,
+  logo,
+  active,
+  activate,
+  deactivate,
+  _new,
+}: CardProps) => {
   return (
     <a
       href={url}
       target="_blank"
       className="project-card-link"
-      onMouseEnter={() => setTimeout(() => setActive(true), 100)}
-      onMouseLeave={() => setActive(false)}
+      onMouseEnter={() => setTimeout(() => activate(), 100)}
+      onMouseLeave={() => deactivate()}
     >
       <motion.div
         className="project-card"

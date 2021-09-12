@@ -19,12 +19,12 @@
 .year {
   font-family: "GT Maru";
   font-size: 36px;
-  color: #8c8c8c;
+  color: #b0b0b0;
   margin-bottom: -7px;
 }
 
 .year-underline {
-  border: 2.5px solid #8c8c8c;
+  border: 2.5px solid #b0b0b0;
 }
 
 .project-cards {

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"log"
 	"net/http"
 	"time"
@@ -22,6 +23,17 @@ func fileHandler(filePath string) http.HandlerFunc {
 
 func main() {
 	r := mux.NewRouter()
+
+	r.HandleFunc("/status", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+
+		payload := struct {
+			Status string `json:"status"`
+		}{
+			Status: "ok",
+		}
+		json.NewEncoder(w).Encode(payload)
+	})
 
 	r.PathPrefix("/logos").Handler(http.FileServer(http.Dir(distPath)))
 	r.PathPrefix("/static").Handler(http.FileServer(http.Dir(distPath)))
